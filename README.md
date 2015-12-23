@@ -2,7 +2,17 @@ RAML JSON Schema Expander
 ============
 
 ### Purpose
-This library will expand JSON Schema draft 4 schema references in a ramlObject created by raml2obj. It was primarily created for use in raml2html so that schemas which reference other schemas will be expanded istead of leaving "$ref": "foo.json#". 
+This library will expand JSON Schema draft 4 schema references in a ramlObject created by raml2obj. It was primarily created for use in raml2html so that schemas which reference other schemas will be expanded instead of leaving "$ref": "foo.json#".
+Additionally, library will search for referenced schemas locally, if SCHEMA_LOCAL_PATHS environment variable is set. SCHEMA_LOCAL_PATHS should contain search paths separated by semicolon.
+Also inner file paths are supported. Possible ref examples:
+
+    {"$ref": "../common/file.json")
+    {"$ref": "../common/file.json#definitions/innerDefinition")
+    {"$ref": "#definitions/localDefinition")
+
+### TODO
+It would be better to get rid of SCHEMA_LOCAL_PATHS and always use schema file path as base path for search.
+But this path is lost after '!include' expansion in raml2obj.
 
 ### Usage
 Currently you will need to use my fork of raml2html. In the future it may be included with raml2html. 
