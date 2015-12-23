@@ -2,11 +2,11 @@
   "name": "raml-jsonschema-expander",
   "version": "1.0.2",
   "description": "Expands JSON Schema draft 4 references from a RAML object created with raml2obj.",
-  "homepage": "https://github.com/br-adam-newman/raml-jsonschema-expander",
+  "homepage": "https://github.com/pavelmoskovkin/raml-jsonschema-expander",
   "author": {
-    "name": "Adam Newman",
-    "email": "br-adam-newman@users.noreply.github.com",
-    "url": "https://github.com/br-adam-newman"
+    "name": "Pavel Moskovkin",
+    "email": "pavelmoskovkin@users.noreply.github.com",
+    "url": "https://github.com/pavelmoskovkin"
   },
   "keywords": [
     "raml",
@@ -15,7 +15,7 @@
   ],
   "contributors": [
     {
-      "name": "Adam Newman",
+      "name": "Pavel Moskovkin",
       "email": "br-adam-newman@users.noreply.github.com"
     }
   ],
@@ -26,7 +26,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/br-adam-newman/raml-jsonschema-expander.git"
+    "url": "git://github.com/pavelmoskovkin/raml-jsonschema-expander.git"
   },
   "engines": {
     "node": ">=0.6.0"
