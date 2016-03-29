@@ -17,6 +17,15 @@ if (localPaths) {
 }
 storages.push(new WebStorage());
 
+function logNotFoundError(context, value) {
+    console.info('Tried to search at: ');
+    for (var i in context.storages) {
+        console.info('    ' + context.storages[i].getStorageName());
+    }
+
+    console.info('Most likely you need to fix SCHEMA_LOCAL_PATHS environment variable.');
+}
+
 var expandedSchemaCache = {};
 
 function expandJsonSchemas(ramlObj) {
@@ -108,7 +117,12 @@ function walkTree(context, node) {
                 return node;
             } else {
                 //Node has a ref, create expanded ref in its place.
-                expandedRef = fetchRefData(context, value);
+                try {
+                    expandedRef = fetchRefData(context, value);
+                } catch (e) {
+                    logNotFoundError(context, value);
+                    throw 'Can\'t expand ref ' + value + '.';
+                }
                 delete node["$ref"];
             }
         } else if (isObject(value)) {
